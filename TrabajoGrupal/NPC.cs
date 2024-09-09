@@ -8,5 +8,14 @@ namespace TrabajoGrupal
 {
     internal class NPC
     {
+        private string Name;
+        private int Level;
+        
+        public NPC (string name, int level)
+           {
+            Name = name;
+            Level = level;
+           }
     }
 }
+
