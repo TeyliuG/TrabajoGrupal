@@ -8,112 +8,178 @@ namespace TrabajoGrupal
 {
     internal class RPG
     {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        private Jugador jugador;
+
+        public void Execute()
+        {
+            CreatePlayerMenu();
+            MainGameLoop();
+        }
+
+        private void CreatePlayerMenu()
+        {
+            string name;
+            Console.WriteLine("Introduce tu nombre:");
+            name = Console.ReadLine();
+            int level = 0;
+            bool continueFlag = true;
+            while (continueFlag)
+            {
+                Console.WriteLine("Introduce el nivel (número entero positivo):");
+                level = int.Parse(Console.ReadLine());
+
+                if (level > 0)
+                {
+                    continueFlag = false;
+                }
+                else
+                {
+                    Console.WriteLine("El nivel debe ser un número entero positivo. Intenta de nuevo.");
+                }
+            }
+            jugador = new Jugador(name, level);
+            Console.WriteLine($"Se creó el jugador:");
+            Console.WriteLine(jugador.GetData());
+        }
+        private void MainGameLoop()
+        {
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("\nMenú de Opciones:");
+                Console.WriteLine("1. Crear Jugador");
+                Console.WriteLine("2. Mostrar Jugador");
+                Console.WriteLine("3. Salir");
+
+                string option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        CreatePlayerMenu();
+                        break;
+                    case "2":
+                        if (jugador != null)
+                        {
+                            Console.WriteLine(jugador.GetData());
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay jugador creado.");
+                        }
+                        break;
+                    case "3":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Intenta de nuevo.");
+                        break;
+                }
+            }
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+

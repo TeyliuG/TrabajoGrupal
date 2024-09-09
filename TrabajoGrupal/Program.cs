@@ -10,6 +10,8 @@ namespace TrabajoGrupal
     {
         static void Main(string[] args)
         {
+            RPG menu = new RPG();
+            menu.Execute();
         }
     }
 }

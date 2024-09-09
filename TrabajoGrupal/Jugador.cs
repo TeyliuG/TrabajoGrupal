@@ -9,13 +9,17 @@ namespace TrabajoGrupal
     internal class Jugador
     {
         private string name;
-        private int nivel;
+        private int level;
 
-        public Jugador(string name, int nivel)
+        public Jugador(string name, int level)
         {
             this.name = name;
-            this.nivel = nivel;
+            this.level = level;
 
+        }
+        public string GetData()
+        {
+            return $"Jugador:{name} - Nivel:{level}";
         }
     }
 }   
