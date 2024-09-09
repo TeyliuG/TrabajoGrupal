@@ -8,5 +8,14 @@ namespace TrabajoGrupal
 {
     internal class Jugador
     {
+        private string name;
+        private int nivel;
+
+        public Jugador(string name, int nivel)
+        {
+            this.name = name;
+            this.nivel = nivel;
+
+        }
     }
-}
+}   
