@@ -69,7 +69,7 @@ namespace TrabajoGrupal
                 }
             }
 
-            NPC.AddNPC(name, level); 
+            NPC.AddNPC(name, level);
             Console.WriteLine("Se creó el NPC: " + name);
         }
         private void CreateItemMenu()
@@ -82,7 +82,14 @@ namespace TrabajoGrupal
                 itemName = Console.ReadLine();
                 items.Add(new Item(itemName));
                 Console.WriteLine($"Item {itemName} creado");
-
+                continueflag = false;
+            }
+        }
+        private void ItemList()
+        {
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.GetSet());
             }
         }
         private void MainGameLoop()
@@ -95,7 +102,8 @@ namespace TrabajoGrupal
                 Console.WriteLine("2. Mostrar Jugador");
                 Console.WriteLine("3. Crear NPC");
                 Console.WriteLine("4. Crear Item");
-                Console.WriteLine("5. Salir");
+                Console.WriteLine("5. Listar Items");
+                Console.WriteLine("6. Salir");
 
                 string option = Console.ReadLine();
 
@@ -121,6 +129,9 @@ namespace TrabajoGrupal
                         CreateItemMenu();
                         break;
                     case "5":
+                        ItemList();
+                        break;
+                    case "6":
                         running = false;
                         break;
 
