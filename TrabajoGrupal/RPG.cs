@@ -9,12 +9,18 @@ namespace TrabajoGrupal
     internal class RPG
     {
         private Jugador jugador;
+        private List<Item> items;
 
+        public RPG()
+        {
+            items = new List<Item>();
+        }
         public void Execute()
         {
             CreatePlayerMenu();
             MainGameLoop();
         }
+
 
         private void CreatePlayerMenu()
         {
@@ -66,6 +72,19 @@ namespace TrabajoGrupal
             NPC.AddNPC(name, level); 
             Console.WriteLine("Se creó el NPC: " + name);
         }
+        private void CreateItemMenu()
+        {
+            bool continueflag = true;
+            while (continueflag)
+            {
+                string itemName;
+                Console.WriteLine("Introduce nombre del item");
+                itemName = Console.ReadLine();
+                items.Add(new Item(itemName));
+                Console.WriteLine($"Item {itemName} creado");
+
+            }
+        }
         private void MainGameLoop()
         {
             bool running = true;
@@ -75,7 +94,8 @@ namespace TrabajoGrupal
                 Console.WriteLine("1. Crear Jugador");
                 Console.WriteLine("2. Mostrar Jugador");
                 Console.WriteLine("3. Crear NPC");
-                Console.WriteLine("4. Salir");
+                Console.WriteLine("4. Crear Item");
+                Console.WriteLine("5. Salir");
 
                 string option = Console.ReadLine();
 
@@ -98,6 +118,9 @@ namespace TrabajoGrupal
                         CreateNPCMenu();
                         break;                       
                     case "4":
+                        CreateItemMenu();
+                        break;
+                    case "5":
                         running = false;
                         break;
 
