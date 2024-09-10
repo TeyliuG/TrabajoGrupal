@@ -81,7 +81,7 @@ namespace TrabajoGrupal
                 Console.WriteLine("Introduce nombre del item");
                 itemName = Console.ReadLine();
                 items.Add(new Item(itemName));
-                Console.WriteLine($"Item {itemName} creado");
+                Console.WriteLine($"Item {itemName} creado.");
                 continueflag = false;
             }
         }
